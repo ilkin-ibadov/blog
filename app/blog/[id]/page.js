@@ -43,7 +43,7 @@ export default function BlogPost({ params }) {
         </div>
         
         <article className="mb-[105px]">
-          <div dangerouslySetInnerHTML={{ __html: blog.body }}></div>
+          <div className="prose prose-lg" dangerouslySetInnerHTML={{ __html: blog.body }}></div>
         </article>
       </main>
       <Footer />
