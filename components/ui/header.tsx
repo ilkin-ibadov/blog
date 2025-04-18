@@ -11,7 +11,7 @@ export function Header() {
           <Image src="/Logo.svg" alt="MetaBlog Logo" width={158} height={36} />
         </Link>
 
-        <ul className="flex gap-[40px] text-sm font-medium text-gray-600">
+        <ul className="flex gap-[40px] text-[16px] font-normal text-gray-600">
           <li className='hover:text-black'>
             <Link href="/homepage">
               Home
