@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+import { Badge } from "../common/badge";
+import { Button } from "../common/button";
 
 export function EnvVarWarning() {
   return (

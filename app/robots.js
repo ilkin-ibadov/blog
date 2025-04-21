@@ -2,15 +2,11 @@ export default function robots() {
     return {
       rules: [
         {
-          userAgent: 'Googlebot',
-          allow: ['/'],
-          disallow: ['/admin', '/about'],
-        },
-        {
-          userAgent: ['Applebot', 'Bingbot'],
-          disallow: ['/'],
-        },
+          userAgent: '*',
+          allow: '/',
+          disallow: ['/api/*', '/admin/*']
+        }
       ],
-      sitemap: 'https://booking.com/sitemap.xml',
+      sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`
     }
   }

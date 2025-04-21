@@ -28,7 +28,7 @@ export function Header() {
             </Link>
           </li>
           <li className='hover:text-black'>
-            <Link href="/contact">
+            <Link href="/info/contact">
               Contact
             </Link>
           </li>

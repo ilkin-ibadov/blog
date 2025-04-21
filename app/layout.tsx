@@ -22,7 +22,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  // control edilecek
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col">

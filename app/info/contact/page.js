@@ -1,5 +1,5 @@
-import { Header } from "@/components/ui/header";
-import { Footer } from "@/components/ui/footer";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { FaInstagram, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Contact() {

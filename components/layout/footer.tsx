@@ -12,8 +12,8 @@ export function Footer() {
         StackWords is your premier platform for creating and sharing meaningful content. Join our community of writers, thinkers, and creators to explore ideas and connect with readers worldwide.
         </p>
         <div className="text-[16px] font-normal mt-6">
-          <p className="mb-1 font-normal text-gray-600"><span className="font-semibold text-[#181A2A]">Email: </span>info@template.net</p>
-          <p className="font-normal text-gray-600"><span className="font-semibold text-[#181A2A]">Phone: </span>+880 123 456 789</p>
+          <p className="mb-1 font-normal text-gray-600"><span className="font-semibold text-[#181A2A]">Email: </span>orkhan@stackwords.com</p>
+          <p className="font-normal text-gray-600"><span className="font-semibold text-[#181A2A]">Phone: </span>+994 77 000 0000</p>
         </div>
       </div>
 
@@ -60,9 +60,9 @@ export function Footer() {
           </div>
         </div>
         <div className="flex text-[16px] font-normal text-gray-600">
-          <Link href="/terms" className="hover:text-gray-900 border-r px-4">Terms of Use</Link>
-          <Link href="/privacy" className="hover:text-gray-900 border-r px-4">Privacy Policy</Link>
-          <Link href="/cookie" className="hover:text-gray-900 px-4">Cookie Policy</Link>
+          <Link href="/info/terms" className="hover:text-gray-900 border-r px-4">Terms of Use</Link>
+          <Link href="/info/privacy" className="hover:text-gray-900 border-r px-4">Privacy Policy</Link>
+          <Link href="/info/cookie" className="hover:text-gray-900 px-4">Cookie Policy</Link>
         </div>
       </div>
     </div>
