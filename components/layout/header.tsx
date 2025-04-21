@@ -1,56 +1,52 @@
-import Link from 'next/link'
+'use client'
+
 import Image from 'next/image'
 import { ThemeToggle } from './theme-toggle'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { SearchBar } from '../ui/SearchBar';
+import { NavLink } from '../ui/NavLink';
+import { SignInButton } from '../ui/SignInButton';
+import { useThemeStore } from '@/lib/store/theme';
 
 export function Header() {
+  const { isDark } = useThemeStore()
+
   return (
     <header className="py-8">
       <div className="container px-4 flex items-center justify-between">
-        <Link href="/homepage">
-          <Image src="/Logo.svg" alt="MetaBlog Logo" width={158} height={36} />
-        </Link>
+        <NavLink href="/homepage">
+          <Image src={isDark ? '/Dark_Logo.svg' : '/Logo.svg'} alt="MetaBlog Logo" width={158} height={36} />
+        </NavLink>
 
         <ul className="flex gap-[40px] text-[16px] font-normal text-gray-600">
           <li className='hover:text-black'>
-            <Link href="/homepage">
+            <NavLink href="/homepage">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className='hover:text-black'>
-            <Link href="/write-blog">
+            <NavLink href="/write-blog">
               Write a Blog
-            </Link>
+            </NavLink>
           </li>
           <li className='hover:text-black'>
-            <Link href="/my-blogs">
+            <NavLink href="/my-blogs">
               My Blogs
-            </Link>
+            </NavLink>
           </li>
           <li className='hover:text-black'>
-            <Link href="/info/contact">
+            <NavLink href="/info/contact">
               Contact
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
         <div className="flex items-center">
-          <div className="relative">
-            <input 
-              type="search"
-              placeholder="Search"
-              className="w-40 py-2 px-4 border border-gray-100 bg-[#F4F4F5] rounded-lg text-sm focus:outline-none focus:border-gray-400"
-            />
-            <i className="bi bi-search absolute right-3 top-1/2 transform -translate-y-1/2 text-[#52525B] text-base"></i>
-          </div>
-
+          <SearchBar />
           <ThemeToggle />
-
-          <button className="ml-[36px]">
-            <Link href="/sign-in" className="px-4 py-2 text-sm font-normal text-white bg-[#141624] rounded-[5px] hover:opacity-90 inline-block">
-              Sign in
-            </Link>
-          </button>
+          <div className="ml-[36px]">
+            <SignInButton />
+          </div>
         </div>
       </div>
     </header>

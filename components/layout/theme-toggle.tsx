@@ -1,28 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useThemeStore } from '@/lib/store/theme'
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
+  const { isDark, toggleTheme } = useThemeStore()
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
-      className={`w-[48px] h-[28px] ml-[36px] rounded-full p-[2px] transition-colors duration-200 ease-in-out flex items-center ${
-        isDark ? 'bg-gray-600' : 'bg-gray-200'
+      onClick={toggleTheme}
+      className={`w-[48px] h-[28px] ml-[36px] rounded-full p-[4px] transition-colors duration-200 ease-in-out flex items-center ${
+        isDark ? 'bg-[#4B6BFB]' : 'bg-[#E5E5E5]'
       }`}
       aria-label="Toggle theme"
     >
       <div
-        className={`w-[20px] h-[20px] p-[5px] rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out flex items-center justify-center ${
-          isDark ? 'translate-x-[22px]' : 'translate-x-0'
+        className={`w-[20px] h-[20px] rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out flex items-center justify-center ${
+          isDark ? 'translate-x-[20px]' : 'translate-x-0'
         }`}
       >
-        <i
-          className={`text-[14px] ${
-            isDark ? 'bi bi-moon text-gray-600' : 'bi bi-brightness-high-fill text-[#52535F]'
-          }`}
-        />
+        <i className="bi bi-brightness-high-fill text-[12px] text-[#3B3C4A]" />
       </div>
     </button>
   )
