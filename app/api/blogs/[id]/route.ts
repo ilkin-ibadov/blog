@@ -7,9 +7,9 @@ export async function GET(req: Request, {params} : { params: { id: string } }) {
 
     if (!id) return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
 
-    const { data, error } = await supabase.from('todos').select('*').eq('id', id).single();
+    const { data, error } = await supabase.from('blogs').select('*').eq('id', id).single();
 
-    if (error) return new Response(JSON.stringify({ error: 'Todo not found' }), { status: 404 });
+    if (error) return new Response(JSON.stringify({ error: 'Blog not found' }), { status: 404 });
 
     return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },

@@ -4,14 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'randomuser.me',
+        hostname: '**',
       },
     ],
   },
 }
-
 module.exports = nextConfig;

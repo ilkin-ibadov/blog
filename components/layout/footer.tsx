@@ -4,10 +4,22 @@ import Image from 'next/image'
 import { NavLink } from '../ui/NavLink'
 import { useThemeStore } from '@/lib/store/theme'
 import { colors } from '@/lib/constants/variables'
+import { useState, useEffect } from 'react'
+import { FooterNavLink } from '../ui/FooterNavLink'
 
 export function Footer() {
   const { isDark } = useThemeStore()
   const current = isDark ? colors.dark : colors.light
+  const [categories, setCategories] = useState<{ id: string, name: string }[]>([])
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const res = await fetch('/api/categories')
+      const data = await res.json()
+      setCategories(data)
+    }
+    fetchCategories()
+  }, [])
 
   return (
     <footer className={`${current.footerBg} mt-auto`}>
@@ -42,12 +54,11 @@ export function Footer() {
             <div>
               <h3 className={`${current.footerHeading} font-semibold text-lg mb-6`}>Category</h3>
               <ul className="text-[16px] font-normal space-y-2">
-                <li><NavLink href="/category/lifestyle">Lifestyle</NavLink></li>
-                <li><NavLink href="/category/technology">Technology</NavLink></li>
-                <li><NavLink href="/category/travel">Travel</NavLink></li>
-                <li><NavLink href="/category/business">Business</NavLink></li>
-                <li><NavLink href="/category/economy">Economy</NavLink></li>
-                <li><NavLink href="/category/sports">Sports</NavLink></li>
+                {categories.map(category => (
+                  <li key={category.id}>
+                    <FooterNavLink href={`/category/${category.name.toLowerCase()}`}>{category.name}</FooterNavLink>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

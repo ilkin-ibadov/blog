@@ -2,11 +2,32 @@ import BlogList from "@/components/blog/BlogList";
 import FeaturedBlogCard from "@/components/blog/FeaturedBlogCard";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { blogs } from "@/data";
 
 export default async function Home() {
-  const sortedBlogs = [...blogs].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
-  const [latest, ...others] = sortedBlogs;
+  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blogs`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-red-500">Bloglar yüklenemedi.</p>
+      </div>
+    );
+  }
+
+  const blogs = await res.json();
+
+  if (!blogs || blogs.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p>Hiç blog yazısı bulunamadı.</p>
+      </div>
+    );
+  }
+
+  const [latest, ...others] = blogs;
 
   return (
     <>

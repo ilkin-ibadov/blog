@@ -3,11 +3,10 @@ export interface Blog {
     title: string;
     thumbnail: string;
     category: string;
-    timestamp: string;
+    createdAt: string;
     body: string;
     author: {
-      name: string;
+      email: string;
       thumbnail: string;
     };
   }
-  

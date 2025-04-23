@@ -87,7 +87,7 @@ export const colors = {
       footerSubText: 'text-[#97989F]',
       footerHeading: 'text-white',
       footerLogoText: 'text-white',
-      footerLogoSubText: 'text-white',
+      footerLogoSubText: 'text-[#BABABF]',
       footerContactText: 'text-white',
       footerBorder: 'border-[#242535]',
     },
