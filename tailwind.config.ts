@@ -1,8 +1,18 @@
 import type { Config } from "tailwindcss";
+import { colors } from "./lib/constants/variables";
 const flowbiteReact = require("flowbite-react/plugin/tailwindcss");
+
+const extractColorClasses = () => {
+  const lightClasses = Object.values(colors.light);
+  const darkClasses = Object.values(colors.dark);
+  const combined = [...lightClasses, ...darkClasses];
+  const flatClasses = combined.flat();
+  return Array.from(new Set(flatClasses));
+}
 
 const config = {
   darkMode: ["class"],
+  safelist: extractColorClasses(),
   content: [
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",

@@ -4,6 +4,7 @@ export interface Blog {
     thumbnail: string;
     category: string;
     timestamp: string;
+    body: string;
     author: {
       name: string;
       thumbnail: string;

@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Blog } from "@/types/blog";
 import { useThemeStore } from "@/lib/store/theme";
+import { colors } from "@/lib/constants/variables";
 
 export default function BlogCard({ blog }: { blog: Blog }) {
   const { isDark } = useThemeStore();
+  const current = isDark ? colors.dark : colors.light;
 
   return (
-    <article className={`${isDark ? 'bg-[#181A2A] text-white' : 'bg-white text-gray-900'} rounded-xl overflow-hidden border ${isDark ? 'border-[#242535]' : 'border-[#E8E8EA]'} shadow hover:shadow-lg transition-shadow`}>
+    <article className={`rounded-xl overflow-hidden border shadow hover:shadow-lg transition-shadow ${current.blogCardBg} ${ current.blogCardText} ${current.blogCardBorder}`}>
       <Link href={`/blog/${blog.id}`} className="block mt-4 mx-4 relative h-[240px]">
         <Image
           src={blog.thumbnail}
@@ -19,10 +21,10 @@ export default function BlogCard({ blog }: { blog: Blog }) {
         />
       </Link>
       <div className="p-6">
-        <span className={`inline-block px-3 py-1 rounded-md text-sm font-medium mb-4 ${isDark ? 'bg-[#1b1e34] text-[#4B6BFB]' : 'bg-blue-50 text-blue-600'}`}>
+        <span className={`inline-block px-3 py-1 rounded-md text-sm font-medium mb-4 ${current.blogCardCategoryBadge} ${current.blogCardCategoryText}`}>
           {blog.category}
         </span>
-        <h2 className={`text-xl font-semibold mb-4 line-clamp-2 min-h-[56px]`}>
+        <h2 className="text-xl font-semibold mb-4 line-clamp-2 min-h-[56px]">
           {blog.title}
         </h2>
         <div className="flex items-center">
@@ -35,8 +37,8 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             />
           </div>
           <div className="ml-3">
-            <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>{blog.author.name}</p>
-            <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+            <p className={`text-sm font-medium ${current.blogCardAuthorText}`}>{blog.author.name}</p>
+            <p className={`text-sm ${current.blogCardDateText}`}>
               {new Date(blog.timestamp).toLocaleDateString()}
             </p>
           </div>

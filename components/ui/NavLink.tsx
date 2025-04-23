@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { useThemeStore } from '@/lib/store/theme'
+import { colors } from '@/lib/constants/variables'
 
 interface NavLinkProps {
   href: string
@@ -13,12 +14,11 @@ interface NavLinkProps {
 export function NavLink({ href, children, className = '' }: NavLinkProps) {
   const { isDark } = useThemeStore()
 
-  const baseColor = isDark ? 'text-white' : 'text-[#3B3C4A]'
-  const hoverColor = isDark ? 'hover:text-white' : 'hover:text-gray-900'
+  const { navLinkText, navLinkHover } = isDark ? colors.dark : colors.light
 
   return (
-    <Link href={href} className={`${baseColor} ${hoverColor} ${className}`}>
-      {children}
-    </Link>
+    <Link href={href} className={`${navLinkText} ${navLinkHover} ${className}`}>
+  {children}
+</Link>
   )
 }
