@@ -60,7 +60,7 @@ export default function FeaturedBlogCard({ blog }: { blog: Blog }) {
           </div>
           <div className="ml-4">
             <p className="text-white font-medium">{authorEmail}</p>
-            <p className="text-gray-300">{new Date(blog.createdAt).toLocaleDateString()}</p>
+            <p className="text-gray-300">{new Date(blog.created_at).toLocaleDateString()}</p>
           </div>
         </div>
       </div>

@@ -9,23 +9,7 @@ export default async function Home() {
     cache: "no-store",
   });
 
-  if (!res.ok) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-red-500">Bloglar yüklenemedi.</p>
-      </div>
-    );
-  }
-
   const blogs = await res.json();
-
-  if (!blogs || blogs.length === 0) {
-    return (
-      <div className="text-center py-12">
-        <p>Hiç blog yazısı bulunamadı.</p>
-      </div>
-    );
-  }
 
   const [latest, ...others] = blogs;
 

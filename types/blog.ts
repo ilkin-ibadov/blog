@@ -3,7 +3,7 @@ export interface Blog {
     title: string;
     thumbnail: string;
     category: string;
-    createdAt: string;
+    created_at: string;
     body: string;
     author: {
       email: string;

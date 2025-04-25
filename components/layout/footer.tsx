@@ -28,11 +28,11 @@ export function Footer() {
           <div className="max-w-[280px]">
             <h3 className={`${current.footerHeading} font-semibold text-lg`}>About</h3>
             <p className={`${current.footerSubText} text-[16px] font-normal mt-3`}>
-              StackWords is your premier platform for creating and sharing meaningful content. Join our community of writers, thinkers, and creators to explore ideas and connect with readers worldwide.
+              MetaBlog is your premier platform for creating and sharing meaningful content. Join our community of writers, thinkers, and creators to explore ideas and connect with readers worldwide.
             </p>
             <div className="text-[16px] font-normal mt-6">
               <p className={`${current.footerSubText} mb-1 font-normal`}>
-                <span className={`${current.footerContactText} font-semibold`}>Email: </span>orkhan@stackwords.com
+                <span className={`${current.footerContactText} font-semibold`}>Email: </span>orkhan@metablog.com
               </p>
               <p className={`${current.footerSubText} font-normal`}>
                 <span className={`${current.footerContactText} font-semibold`}>Phone: </span>+994 77 000 0000
@@ -56,7 +56,7 @@ export function Footer() {
               <ul className="text-[16px] font-normal space-y-2">
                 {categories.map(category => (
                   <li key={category.id}>
-                    <FooterNavLink href={`/category/${category.name.toLowerCase()}`}>{category.name}</FooterNavLink>
+                    <FooterNavLink href={`/blogs?category=${category.id}`}>{category.name}</FooterNavLink>
                   </li>
                 ))}
               </ul>

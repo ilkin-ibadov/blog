@@ -8,7 +8,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "StackWords",
+  title: "MetaBlog",
   description: "Insights, tutorials, and thought pieces on software development, tech trends, and coding best practices.",
 };
 

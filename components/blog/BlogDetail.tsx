@@ -61,7 +61,14 @@ export default function BlogDetail({ id }: BlogDetailProps) {
     fetchDetails();
   }, [blog]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <main className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-gray-500"></div>
+      </main>
+    );
+  }
+  
   if (error || !blog) return <p>Blog not found.</p>;
 
   return (
@@ -88,7 +95,7 @@ export default function BlogDetail({ id }: BlogDetailProps) {
             {authorEmail}
           </p>
           <p className={`text-sm ${current.blogDetailDateText}`}>
-            {new Date(blog.timestamp).toLocaleDateString()}
+            {new Date(blog.created_at).toLocaleDateString()}
           </p>
         </div>
       </div>

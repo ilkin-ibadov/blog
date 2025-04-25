@@ -66,7 +66,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           <div className="ml-3">
             <p className={`text-sm font-medium ${current.blogCardAuthorText}`}>{authorEmail}</p>
             <p className={`text-sm ${current.blogCardDateText}`}>
-              {new Date(blog.createdAt).toLocaleDateString()}
+              {new Date(blog.created_at).toLocaleDateString()}
             </p>
           </div>
         </div>

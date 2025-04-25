@@ -19,7 +19,7 @@ export function ContactCard() {
         <div className="mb-6">
           <p className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Email:</span>
-            <a href="mailto:orkhan@stackwords.com" className="hover:text-[#a5b4fc]">orkhan@stackwords.com</a>
+            <a href="mailto:orkhan@metablog.com" className="hover:text-[#a5b4fc]">orkhan@metablog.com</a>
           </p>
           <p className="flex items-center gap-2">
             <span className="font-semibold">Phone:</span>
