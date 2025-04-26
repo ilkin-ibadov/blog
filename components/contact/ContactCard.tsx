@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react";
 import { FaInstagram, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useThemeStore } from "@/lib/store/theme";
 import { colors } from "@/lib/constants/variables";
@@ -8,6 +9,36 @@ import { SendButton } from "@/components/contact/SendButton";
 export function ContactCard() {
   const { isDark } = useThemeStore();
   const current = isDark ? colors.dark : colors.light;
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const formData = { name, email, message };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        alert("Your message has been sent! ✅");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Failed to send message. ❌");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Network error. ❌");
+    }
+  }
 
   return (
     <div className={`max-w-5xl ${current.contactCardBg} backdrop-blur-md rounded-2xl shadow-xl p-10 flex flex-row`}>
@@ -36,25 +67,40 @@ export function ContactCard() {
 
       <div className="flex-1 flex flex-col justify-center p-8">
         <h2 className={`text-2xl font-bold mb-6 ${current.contactTitle}`}>Contact Form</h2>
-        <form className="space-y-5">
-          {['Name', 'Email'].map((label, idx) => (
-            <div key={idx}>
-              <label className={`block text-sm font-medium mb-1 ${current.contactInputLabel}`}>{label}</label>
-              <input
-                type={label.toLowerCase()}
-                required
-                className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
-              />
-            </div>
-          ))}
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className={`block text-sm font-medium mb-1 ${current.contactInputLabel}`}>Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
+            />
+          </div>
+
+          <div>
+            <label className={`block text-sm font-medium mb-1 ${current.contactInputLabel}`}>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
+            />
+          </div>
+
           <div>
             <label className={`block text-sm font-medium mb-1 ${current.contactInputLabel}`}>Message</label>
             <textarea
               rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               required
               className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm resize-none focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
             ></textarea>
           </div>
+
           <SendButton />
         </form>
       </div>
