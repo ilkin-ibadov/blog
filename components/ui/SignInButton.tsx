@@ -19,8 +19,10 @@ export function SignInButton() {
     }
     getUser()
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+        window.location.reload()  // 🔥 sadece giriş veya çıkış olunca reload
+      }
     })
 
     return () => subscription.unsubscribe()

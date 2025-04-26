@@ -5,6 +5,8 @@ export const colors = {
       navLinkText: 'text-[#3B3C4A]',
       navLinkHover: 'hover:text-black',
 
+      loadMoreButtonBtn: 'bg-white text-[#696A75] hover:border-black',
+
       searchInputBg: 'bg-[#F4F4F5]',
       searchInputText: 'text-[#3B3C4A]',
       searchInputBorder: 'border border-gray-100',
@@ -13,6 +15,9 @@ export const colors = {
 
       signInBtnBg: 'bg-[#141624]',
       signInBtnText: 'text-white',
+
+      featuredBlogCategoryBadge: 'bg-[#F6F8FF]',
+      featuredBlogCategoryText: 'text-[#4B6BFB]',
 
       blogCardBg: 'bg-white',
       blogCardBorder: 'border-[#E8E8EA]',
@@ -33,7 +38,7 @@ export const colors = {
       contactLeftBg: 'bg-[#141624] text-white',
       contactTitle: 'text-[#141624]',
       contactInputLabel: 'text-gray-700',
-      contactInput: 'border-gray-200 bg-white text-black',
+      contactInput: 'border-gray-200 bg-white text-black focus:border-[#141624]',
       contactButton: 'bg-[#141624] text-white hover:opacity-90',
 
       footerBg: 'bg-[#F6F6F7]',
@@ -55,14 +60,19 @@ export const colors = {
       navLinkText: 'text-[#BABABF]',
       navLinkHover: 'hover:text-[#4B6BFB]',
 
+      loadMoreButtonBtn: 'bg-[#141624] text-[#696A75] border-[#3B3C4A] hover:text-white',
+
       searchInputBg: 'bg-[#242535]',
       searchInputText: 'text-white',
       searchInputBorder: 'border border-[#3B3C4A]',
       searchInputPlaceholder: 'placeholder-[#A1A1AA]',
       searchIcon: 'text-[#BABABF]',
 
-      signInBtnBg: 'bg-[#2c2f45]',
+      signInBtnBg: 'bg-[#2c2f45] border border-[#3B3C4A]',
       signInBtnText: 'text-white',
+
+      featuredBlogCategoryBadge: 'bg-[#1b1e34]',
+      featuredBlogCategoryText: 'text-[#4B6BFB]',
 
       blogCardBg: 'bg-[#181A2A]',
       blogCardBorder: 'border-[#242535]',
@@ -83,7 +93,7 @@ export const colors = {
       contactLeftBg: 'bg-[#242535] text-white',
       contactTitle: 'text-white',
       contactInputLabel: 'text-[#A1A1AA]',
-      contactInput: 'border-white/20 bg-[#242535] text-white',
+      contactInput: 'border-white/20 bg-[#242535] text-white focus:border-[#4B6BFB]',
       contactButton: 'bg-[#2c2f45] text-white hover:bg-[#3a3e5b]',
 
       footerBg: 'bg-[#141624]',
@@ -95,9 +105,9 @@ export const colors = {
       footerContactText: 'text-white',
       footerBorder: 'border-[#242535]',
 
-      writeBlogInput: 'border-white/20 bg-[#242535] text-white',
+      writeBlogInput: 'border-white/20 bg-[#242535] text-white focus:border-[#4B6BFB]',
       writeBlogText: 'text-white',
-      writeBlogBtn: 'bg-[#2c2f45] text-white hover:bg-[#3a3e5b]',
+      writeBlogBtn: 'bg-[#2c2f45] text-white border border-[#3B3C4A] hover:bg-[#3a3e5b]',
     },
   }
   

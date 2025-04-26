@@ -75,7 +75,7 @@ export function ContactCard() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
+              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${current.contactInput}`}
             />
           </div>
 
@@ -86,7 +86,7 @@ export function ContactCard() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
+              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none  ${current.contactInput}`}
             />
           </div>
 
@@ -97,7 +97,7 @@ export function ContactCard() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm resize-none focus:outline-none focus:border-[#4B6BFB] ${current.contactInput}`}
+              className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm resize-none focus:outline-none ${current.contactInput}`}
             ></textarea>
           </div>
 
