@@ -45,8 +45,8 @@ export function Footer() {
               <h3 className={`${current.footerHeading} font-semibold text-lg mb-6`}>Quick Link</h3>
               <ul className="text-[16px] font-normal space-y-2">
                 <li><NavLink href="/">Home</NavLink ></li>
-                <li><NavLink href="/blog">Write a Blog</NavLink ></li>
-                <li><NavLink href="/blogs">My Blogs</NavLink ></li>
+                <li><NavLink href="/blogs/write-blog">Write a Blog</NavLink ></li>
+                <li><NavLink href="/my-blogs">My Blogs</NavLink ></li>
                 <li><NavLink href="/info/contact">Contact</NavLink ></li>
               </ul>
             </div>

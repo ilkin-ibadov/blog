@@ -5,9 +5,9 @@ import { ThemeToggle } from './theme-toggle'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { SearchBar } from '../ui/SearchBar'
 import { NavLink } from '../ui/NavLink'
-import { SignInButton } from '../ui/SignInButton'
 import { useThemeStore } from '@/lib/store/theme'
 import { colors } from '@/lib/constants/variables'
+import { SignInButton } from '../ui/SignInButton'
 
 export function Header() {
   const { isDark } = useThemeStore()
@@ -27,7 +27,7 @@ export function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/write-blog">
+            <NavLink href="blogs/write-blog">
               Write a Blog
             </NavLink>
           </li>

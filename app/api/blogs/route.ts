@@ -16,27 +16,37 @@ export async function GET() {
   });
 }
 
-
 export async function POST(req: Request) {
-    const supabase = await createClient();
-    const body = await req.json();
-    const { title, description } = body;
+  const supabase = await createClient();
+  const { title, body, category, thumbnail } = await req.json();
 
-    if (!title || !description) {
-        return new Response(JSON.stringify({ error: 'Missing required field' }), { status: 400 });
-    }
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-    const { data, error } = await supabase
-        .from('todos')
-        .insert({ title, description })
-        .single();
+  if (userError || !user) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
+  }
 
-    if (error) {
-        return new Response(JSON.stringify({ error: error.message }), { status: 500 });
-    }
+  if (!title || !body || !category || !thumbnail) {
+    return new Response(JSON.stringify({ error: 'Missing required fields' }), { status: 400 });
+  }
 
-    return new Response(JSON.stringify(data), {
-        headers: { 'Content-Type': 'application/json' },
-        status: 201,
-    });
+  const { data, error } = await supabase
+    .from('blogs')
+    .insert({
+      title,
+      body,
+      category,
+      thumbnail,
+      author: user.id,
+    })
+    .single();
+
+  if (error) {
+    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+  }
+
+  return new Response(JSON.stringify(data), {
+    headers: { 'Content-Type': 'application/json' },
+    status: 201,
+  });
 }

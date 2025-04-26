@@ -44,6 +44,10 @@ export const colors = {
       footerLogoSubText: 'text-[#181A2A]',
       footerContactText: 'text-[#181A2A]',
       footerBorder: 'border-[#E8E8EA]',
+
+      writeBlogInput: 'bg-white text-black',
+      writeBlogText: 'text-[#232536]',
+      writeBlogBtn: 'bg-[#141624] text-white hover:opacity-90',
     },
     dark: {
       logo: '/Dark_Logo.svg',
@@ -90,6 +94,10 @@ export const colors = {
       footerLogoSubText: 'text-[#BABABF]',
       footerContactText: 'text-white',
       footerBorder: 'border-[#242535]',
+
+      writeBlogInput: 'border-white/20 bg-[#242535] text-white',
+      writeBlogText: 'text-white',
+      writeBlogBtn: 'bg-[#2c2f45] text-white hover:bg-[#3a3e5b]',
     },
   }
   

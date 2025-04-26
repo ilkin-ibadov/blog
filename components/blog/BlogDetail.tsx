@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useThemeStore } from "@/lib/store/theme";
 import { colors } from "@/lib/constants/variables";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 interface BlogDetailProps {
   id: string;
@@ -62,11 +63,7 @@ export default function BlogDetail({ id }: BlogDetailProps) {
   }, [blog]);
 
   if (loading) {
-    return (
-      <main className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-gray-500"></div>
-      </main>
-    );
+    return <LoadingSpinner />;
   }
   
   if (error || !blog) return <p>Blog not found.</p>;
