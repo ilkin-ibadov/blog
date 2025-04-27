@@ -80,7 +80,7 @@ export async function POST(req: Request) {
 
                 <!-- Action Button -->
                 <div style="text-align: center; margin: 32px 0;">
-                  <a href="/blogs" style="display: inline-block; background-color: #3b82f6; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 500;">View Latest Posts</a>
+                  <a href="http://localhost:3000/homepage" style="display: inline-block; background-color: #3b82f6; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 500;">View Latest Posts</a>
                 </div>
 
                 <!-- Footer -->

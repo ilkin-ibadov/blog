@@ -18,6 +18,11 @@ export const colors = {
       searchInputPlaceholder: 'placeholder-[#52525B]',
       searchIcon: 'text-[#52525B]',
 
+      infoPageText: 'text-[#3B3C4A]',
+      infoPageTitle: 'text-[#181A2A]',
+      infoPageDateText: 'text-[#97989F]',
+      infoPageHeading: 'text-[#181A2A]',    
+
       signInBtnBg: 'bg-[#141624]',
       signInBtnText: 'text-white',
 
@@ -77,6 +82,11 @@ export const colors = {
       searchInputBorder: 'border border-[#3B3C4A] focus:outline-none',
       searchInputPlaceholder: 'placeholder-[#A1A1AA]',
       searchIcon: 'text-[#BABABF]',
+
+      infoPageText: 'text-[#BABABF]',
+      infoPageTitle: 'text-white',
+      infoPageDateText: 'text-[#696A75]',
+      infoPageHeading: 'text-white',
 
       signInBtnBg: 'bg-[#2c2f45] border border-[#3B3C4A]',
       signInBtnText: 'text-white',

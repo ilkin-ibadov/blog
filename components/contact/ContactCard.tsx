@@ -27,16 +27,16 @@ export function ContactCard() {
       });
 
       if (res.ok) {
-        alert("Your message has been sent! ✅");
+        alert("Your message has been sent");
         setName("");
         setEmail("");
         setMessage("");
       } else {
-        alert("Failed to send message. ❌");
+        alert("Failed to send message");
       }
     } catch (error) {
       console.error(error);
-      alert("Network error. ❌");
+      alert("Network error");
     }
   }
 
