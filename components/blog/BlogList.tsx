@@ -6,9 +6,11 @@ import BlogCard from "./BlogCard";
 import FeaturedBlogCard from "./FeaturedBlogCard";
 import LoadMoreButton from "@/components/ui/LoadMoreButton";
 import { Blog } from "@/types/blog";
+import SortSelect from "../ui/SortSelect";
 
 export default function BlogList({ blogs, showFeatured = true }: { blogs: Blog[]; showFeatured?: boolean }) {
   const [visibleCount, setVisibleCount] = useState(9);
+  const [sortOption, setSortOption] = useState('latest');
   const searchParams = useSearchParams();
 
   const query = searchParams.get('q')?.toLowerCase() || '';
@@ -30,12 +32,29 @@ export default function BlogList({ blogs, showFeatured = true }: { blogs: Blog[]
     return matchesQuery && matchesCategory;
   });
 
-  // Featured ayırma sadece showFeatured true ise
-  const featuredBlog = showFeatured && filteredBlogs.length > 0 ? filteredBlogs[0] : null;
-  const otherBlogs = featuredBlog ? filteredBlogs.slice(1) : filteredBlogs;
+  const sortedBlogs = [...filteredBlogs].sort((a, b) => {
+    if (sortOption === 'az') {
+      return a.title.localeCompare(b.title);
+    }
+    if (sortOption === 'za') {
+      return b.title.localeCompare(a.title);
+    }
+    if (sortOption === 'latest') {
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    }
+    if (sortOption === 'oldest') {
+      return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+    }
+    return 0;
+  });
+
+  const featuredBlog = showFeatured && sortedBlogs.length > 0 ? sortedBlogs[0] : null;
+  const otherBlogs = featuredBlog ? sortedBlogs.slice(1) : sortedBlogs;
 
   return (
-    <>
+    <>  
+      <SortSelect sortOption={sortOption} setSortOption={setSortOption} />
+
       {showFeatured && featuredBlog && (
         <div className="mb-12">
           <FeaturedBlogCard blog={featuredBlog} />

@@ -14,7 +14,7 @@ export const colors = {
 
       searchInputBg: 'bg-[#F4F4F5]',
       searchInputText: 'text-[#3B3C4A]',
-      searchInputBorder: 'border border-gray-100',
+      searchInputBorder: 'border border-gray-100 focus:outline-none',
       searchInputPlaceholder: 'placeholder-[#52525B]',
       searchIcon: 'text-[#52525B]',
 
@@ -74,7 +74,7 @@ export const colors = {
 
       searchInputBg: 'bg-[#242535]',
       searchInputText: 'text-white',
-      searchInputBorder: 'border border-[#3B3C4A]',
+      searchInputBorder: 'border border-[#3B3C4A] focus:outline-none',
       searchInputPlaceholder: 'placeholder-[#A1A1AA]',
       searchIcon: 'text-[#BABABF]',
 
