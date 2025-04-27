@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Blog } from "@/types/blog";
 import { useThemeStore } from "@/lib/store/theme";
 import { colors } from "@/lib/constants/variables";
+import { NavLink } from "../ui/NavLink";
 
 export default function BlogCard({ blog }: { blog: Blog }) {
   const { isDark } = useThemeStore();
@@ -13,6 +14,8 @@ export default function BlogCard({ blog }: { blog: Blog }) {
 
   const [categoryName, setCategoryName] = useState("Uncategorized");
   const [authorEmail, setAuthorEmail] = useState("Unknown Author");
+
+  const username = authorEmail.split('@')[0];
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -64,7 +67,11 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             />
           </div>
           <div className="ml-3">
-            <p className={`text-sm font-medium ${current.blogCardAuthorText}`}>{authorEmail}</p>
+            <NavLink href={`/author/${blog.author}`}>
+              <p className={`text-sm font-medium ${current.blogCardAuthorText} hover:underline cursor-pointer`}>
+                {username}
+              </p>
+            </NavLink>
             <p className={`text-sm ${current.blogCardDateText}`}>
               {new Date(blog.created_at).toLocaleDateString()}
             </p>

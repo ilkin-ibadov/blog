@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useThemeStore } from "@/lib/store/theme";
 import { colors } from "@/lib/constants/variables";
 import LoadingSpinner from "../ui/LoadingSpinner";
+import { NavLink } from "../ui/NavLink";
 
 interface BlogDetailProps {
   id: string;
@@ -88,9 +89,11 @@ export default function BlogDetail({ id }: BlogDetailProps) {
           />
         </div>
         <div>
-          <p className={`text-base font-semibold ${current.blogDetailAuthor}`}>
-            {authorEmail}
-          </p>
+          <NavLink href={`/author/${blog.author}`}>
+            <p className={`text-base font-semibold ${current.blogDetailAuthor} hover:underline cursor-pointer`}>
+              {authorEmail}
+            </p>
+          </NavLink>
           <p className={`text-sm ${current.blogDetailDateText}`}>
             {new Date(blog.created_at).toLocaleDateString()}
           </p>

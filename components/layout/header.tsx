@@ -7,11 +7,14 @@ import { SearchBar } from '../ui/SearchBar'
 import { NavLink } from '../ui/NavLink'
 import { useThemeStore } from '@/lib/store/theme'
 import { colors } from '@/lib/constants/variables'
-import { SignInButton } from '../ui/SignInButton'
+import { useUser } from "@/hooks/useUser";
+import LogoutButton from '../ui/LogoutButton'
+import SignInButton from '../ui/SignInButton'
 
 export function Header() {
   const { isDark } = useThemeStore()
   const current = isDark ? colors.dark : colors.light
+  const user = useUser();
 
   return (
     <header className="py-8">
@@ -47,7 +50,7 @@ export function Header() {
           <SearchBar />
           <ThemeToggle />
           <div className="ml-[36px]">
-            <SignInButton />
+            {user ? <LogoutButton /> : <SignInButton />}
           </div>
         </div>
       </div>

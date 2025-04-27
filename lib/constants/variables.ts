@@ -7,6 +7,11 @@ export const colors = {
 
       loadMoreButtonBtn: 'bg-white text-[#696A75] hover:border-black',
 
+      authorPageIcon: 'text-[#4B6BFB]',
+      authorPageHeading: 'text-[#181A2A]',
+      authorPageDescription: 'text-[#3B3C4A]',
+      authorPageBg: 'bg-[#F6F6F7]',
+
       searchInputBg: 'bg-[#F4F4F5]',
       searchInputText: 'text-[#3B3C4A]',
       searchInputBorder: 'border border-gray-100',
@@ -61,6 +66,11 @@ export const colors = {
       navLinkHover: 'hover:text-[#4B6BFB]',
 
       loadMoreButtonBtn: 'bg-[#141624] text-[#696A75] border-[#3B3C4A] hover:text-white',
+
+      authorPageIcon: 'text-[#4B6BFB]',
+      authorPageHeading: 'text-white',
+      authorPageDescription: 'text-[#BABABF]',
+      authorPageBg: 'bg-[#242535]',
 
       searchInputBg: 'bg-[#242535]',
       searchInputText: 'text-white',
