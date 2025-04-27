@@ -7,27 +7,36 @@ import FeaturedBlogCard from "./FeaturedBlogCard";
 import LoadMoreButton from "@/components/ui/LoadMoreButton";
 import { Blog } from "@/types/blog";
 
-export default function BlogList({ blogs }: { blogs: Blog[] }) {
+export default function BlogList({ blogs, showFeatured = true }: { blogs: Blog[]; showFeatured?: boolean }) {
   const [visibleCount, setVisibleCount] = useState(9);
   const searchParams = useSearchParams();
+
   const query = searchParams.get('q')?.toLowerCase() || '';
+  const category = searchParams.get('category');
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 10);
   };
 
-  const filteredBlogs = query
-    ? blogs.filter((blog) =>
-        blog.title.toLowerCase().includes(query)
-      )
-    : blogs;
+  const filteredBlogs = blogs.filter((blog) => {
+    const matchesQuery = query
+      ? blog.title.toLowerCase().includes(query)
+      : true;
 
-  const featuredBlog = filteredBlogs.length > 0 ? filteredBlogs[0] : null;
-  const otherBlogs = filteredBlogs.length > 1 ? filteredBlogs.slice(1) : [];
+    const matchesCategory = category
+      ? blog.category.toString() === category
+      : true;
+
+    return matchesQuery && matchesCategory;
+  });
+
+  // Featured ayırma sadece showFeatured true ise
+  const featuredBlog = showFeatured && filteredBlogs.length > 0 ? filteredBlogs[0] : null;
+  const otherBlogs = featuredBlog ? filteredBlogs.slice(1) : filteredBlogs;
 
   return (
     <>
-      {featuredBlog && (
+      {showFeatured && featuredBlog && (
         <div className="mb-12">
           <FeaturedBlogCard blog={featuredBlog} />
         </div>

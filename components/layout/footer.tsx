@@ -56,7 +56,7 @@ export function Footer() {
               <ul className="text-[16px] font-normal space-y-2">
                 {categories.map(category => (
                   <li key={category.id}>
-                    <FooterNavLink href={`/blogs?category=${category.id}`}>{category.name}</FooterNavLink>
+                    <FooterNavLink href={`/homepage?category=${category.id}`}>{category.name}</FooterNavLink>
                   </li>
                 ))}
               </ul>

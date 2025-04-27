@@ -32,7 +32,7 @@ export default async function AuthorPage({ params }) {
     <Header/>
     <section className="container px-4 py-12">
       <AuthorInfo email={author.email} />
-      <BlogList blogs={blogs} />
+      <BlogList blogs={blogs} showFeatured={false} />
     </section>
     <Footer/>
     </>

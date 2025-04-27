@@ -33,16 +33,16 @@ export default function AuthorInfo({ email }: AuthorInfoProps) {
           gaining a deep understanding of the impact technology has on our lives.
         </p>
         <div className="flex gap-3 mt-6">
-          <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
             <FaTwitter className="w-4 h-4 text-white" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
+          <a href="https://www.instagram.com/orkhnw" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
             <FaInstagram className="w-4 h-4 text-white" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
+          <a href="https://github.com/orkhaan007" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
             <FaGithub className="w-4 h-4 text-white" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-gray-600 p-2 rounded-md hover:bg-gray-500 transition">
             <FaYoutube className="w-4 h-4 text-white" />
           </a>
         </div>
