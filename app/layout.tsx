@@ -1,6 +1,7 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col transition-colors duration-300">
         <ThemeProvider>
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
