@@ -7,8 +7,9 @@ import { Blog } from "@/types/blog";
 import { useThemeStore } from "@/lib/store/theme";
 import { colors } from "@/lib/constants/variables";
 import { NavLink } from "../ui/NavLink";
+import { Trash2 } from "lucide-react";
 
-export default function BlogCard({ blog }: { blog: Blog }) {
+export default function BlogCard({ blog, onDelete }: { blog: Blog; onDelete?: (id: string) => void }) {
   const { isDark } = useThemeStore();
   const current = isDark ? colors.dark : colors.light;
 
@@ -41,7 +42,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
   }, [blog]);
 
   return (
-    <article className={`rounded-xl overflow-hidden border shadow hover:shadow-lg transition-shadow ${current.blogCardBg} ${current.blogCardText} ${current.blogCardBorder}`}>
+    <article className={`rounded-xl relative overflow-hidden border shadow hover:shadow-lg transition-shadow ${current.blogCardBg} ${current.blogCardText} ${current.blogCardBorder}`}>
       <Link href={`/blogs/${blog.id}`} className="block mt-4 mx-4 relative h-[240px]">
         <Image
           src={blog.thumbnail}
@@ -76,6 +77,15 @@ export default function BlogCard({ blog }: { blog: Blog }) {
               {new Date(blog.created_at).toLocaleDateString()}
             </p>
           </div>
+          {onDelete && (
+          <button
+            onClick={() => onDelete(blog.id)}
+            className="group absolute top-95 right-4 p-2 rounded-full bg-transparent z-10" >
+            <Trash2
+              size={20}
+              className="text-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+          </button>
+         )}
         </div>
       </div>
     </article>

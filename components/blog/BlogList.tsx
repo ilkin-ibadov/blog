@@ -8,7 +8,7 @@ import LoadMoreButton from "@/components/ui/LoadMoreButton";
 import { Blog } from "@/types/blog";
 import SortSelect from "../ui/SortSelect";
 
-export default function BlogList({ blogs, showFeatured = true }: { blogs: Blog[]; showFeatured?: boolean }) {
+export default function BlogList({ blogs, showFeatured = true, onDelete }: { blogs: Blog[]; showFeatured?: boolean; onDelete?: (id: string) => void; }) {
   const [visibleCount, setVisibleCount] = useState(9);
   const [sortOption, setSortOption] = useState('latest');
   const searchParams = useSearchParams();
@@ -63,7 +63,7 @@ export default function BlogList({ blogs, showFeatured = true }: { blogs: Blog[]
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {otherBlogs.slice(0, visibleCount).map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
+          <BlogCard key={blog.id} blog={blog} onDelete={onDelete} />
         ))}
       </div>
 

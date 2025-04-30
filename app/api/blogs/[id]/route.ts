@@ -1,6 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
 
-// @ts-ignore
 export async function GET(req: Request, {params} : { params: { id: string } }) {
     const supabase = await createClient();
     const id = params.id;
@@ -16,7 +15,6 @@ export async function GET(req: Request, {params} : { params: { id: string } }) {
     });
 }
 
-// @ts-ignore
 export async function PUT(req: Request, {params} : { params: { id: string } }) {
     const supabase = await createClient();
     const body = await req.json();
@@ -26,7 +24,7 @@ export async function PUT(req: Request, {params} : { params: { id: string } }) {
     if (!id) return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
 
     const { data, error } = await supabase
-        .from('todos')
+        .from('blogs')
         .update({ title, description, completed })
         .eq('id', id)
         .single();
@@ -38,14 +36,13 @@ export async function PUT(req: Request, {params} : { params: { id: string } }) {
     });
 }
 
-// @ts-ignore
 export async function DELETE(req: Request, {params} : { params: { id: string } }) {
     const supabase = await createClient()
     const {id} = await params;
 
     if (!id) return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
 
-    const { error } = await supabase.from('todos').delete().eq('id', id);
+    const { error } = await supabase.from('blogs').delete().eq('id', id);
 
     if (error) return new Response(JSON.stringify({ error: error.message }), { status: 500 });
 
