@@ -5,6 +5,9 @@ export const colors = {
       navLinkText: 'text-[#3B3C4A]',
       navLinkHover: 'hover:text-black',
 
+      infoCardText: "text-gray-900",
+      infoPageRound: 'bg-[#181A2A]',
+
       loadMoreButtonBtn: 'bg-white text-[#696A75] hover:border-black',
 
       authorPageIcon: 'text-[#4B6BFB]',
@@ -69,6 +72,9 @@ export const colors = {
 
       navLinkText: 'text-[#BABABF]',
       navLinkHover: 'hover:text-[#4B6BFB]',
+
+      infoCardText: "text-gray-100",
+      infoPageRound: 'bg-white',
 
       loadMoreButtonBtn: 'bg-[#141624] text-[#696A75] border-[#3B3C4A] hover:text-white',
 
