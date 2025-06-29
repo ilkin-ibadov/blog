@@ -3,10 +3,10 @@ import { createClient } from "@/utils/supabase/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: any } }
 ) {
   const supabase = await createClient();
-  const id = (await params).id;
+  const id = params.id;
 
   if (!id) {
     return NextResponse.json({ error: "ID is required" }, { status: 400 });
