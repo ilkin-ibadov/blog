@@ -1,10 +1,18 @@
 import { createClient } from "@/utils/supabase/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const page = parseInt(req.nextUrl.searchParams.get("page") || "1") || 1;
+  const limit = parseInt(req.nextUrl.searchParams.get("limit") || "10") || 10;
+  const searchString = req.nextUrl.searchParams.get("searchString")
+
+  const skip = (page - 1) * limit
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("blogs")
     .select("*")
+    .range(skip, skip + limit - 1)
+    .ilike("title", `%${searchString || ''}%`)
     .order("created_at", { ascending: false });
 
   if (error) {
